@@ -1,52 +1,199 @@
 body {
+    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f8f9fa;
+    background: linear-gradient(120deg, #f0f0f0, #e0e0e0);
+    background-size: 200% 200%;
+    animation: gradient-animation 10s ease infinite;
     margin: 0;
-    font-family: Arial, sans-serif;
+    transition: background 0.3s ease;
 }
 
-.clock {
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.clock-container {
     text-align: center;
-    background: #fff;
-    padding: 2em;
+    background-color: #ffffff;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#current-time {
-    font-size: 3em;
-    margin-bottom: 1em;
+.clock-face {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    animation: clock-animation 1s infinite alternate;
 }
 
-#alarm-time {
-    width: 100%;
-    padding: 0.5em;
-    font-size: 1em;
-    margin-bottom: 1em;
-    border: 1px solid #ddd;
+@keyframes clock-animation {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+.set-alarm,
+.alarms-list {
+    margin: 20px 0;
+}
+
+.set-alarm h2,
+.alarms-list h2 {
+    margin-bottom: 10px;
+}
+
+.alarm-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+input,
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 1rem;
 }
 
-.button-56 {
-    padding: 0.75em 1.5em;
-    font-size: 1em;
-    color: #fff;
-    background-color: #007bff;
+#set-alarm,
+.delete-alarm,
+#dark-mode-toggle {
+    cursor: pointer;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    background-color: #007BFF;
+    color: white;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: background-color 0.3s;
 }
 
-.button-56:hover {
+#set-alarm:hover,
+.delete-alarm:hover,
+#dark-mode-toggle:hover {
     background-color: #0056b3;
 }
 
-#alarm-message {
-    margin-top: 1em;
-    font-size: 1em;
-    color: #d7162a;
+.delete-alarm {
+    background-color: #dc3545;
+    margin-left: 10px;
+}
+
+.delete-alarm:hover {
+    background-color: #c82333;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+    .clock-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .clock-face {
+        font-size: 2.5rem;
+    }
+
+    input,
+    select {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    #set-alarm,
+    .delete-alarm,
+    #dark-mode-toggle {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: linear-gradient(120deg, #2c3e50, #4c566a);
+    background-size: 200% 200%;
+    animation: gradient-animation-dark 10s ease infinite;
+}
+
+@keyframes gradient-animation-dark {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body.dark-mode .clock-container {
+    background-color: #2e3440;
+    color: #d8dee9;
+}
+
+body.dark-mode input,
+body.dark-mode select {
+    border: 1px solid #4c566a;
+    background-color: #3b4252;
+    color: #d8dee9;
+}
+
+body.dark-mode #set-alarm,
+body.dark-mode .delete-alarm,
+body.dark-mode #dark-mode-toggle {
+    background-color: #88c0d0;
+}
+
+body.dark-mode #set-alarm:hover,
+body.dark-mode .delete-alarm:hover,
+body.dark-mode #dark-mode-toggle:hover {
+    background-color: #81a1c1;
+}
+
+body.dark-mode .delete-alarm {
+    background-color: #bf616a;
+}
+
+body.dark-mode .delete-alarm:hover {
+    background-color: #a34a53;
 }

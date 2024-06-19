@@ -9,15 +9,26 @@
 </head>
 
 <body>
-    <div class="clock">
-        <div id="current-time"></div>
-        <input type="time" id="alarm-time" class="form-control mb-2">
-
-        <button class="button-56" onclick="setAlarm()">Set Alarm</button>
-
-        <div id="alarm-message" class="mt-3"></div>
+    <div class="clock-container">
+        <div id="clock" class="clock-face"></div>
+        <div class="set-alarm">
+            <h2>Set Alarm</h2>
+            <div class="alarm-inputs">
+                <input type="number" id="alarm-hours" placeholder="Hours" min="1" max="12">
+                <input type="number" id="alarm-minutes" placeholder="Minutes" min="0" max="59">
+                <input type="number" id="alarm-seconds" placeholder="Seconds" min="0" max="59">
+                <select id="alarm-ampm">
+                    <option value="AM">AM</option>
+                    <option value="PM">PM</option>
+                </select>
+            </div>
+            <button id="set-alarm">Set Alarm</button>
+        </div>
+        <div class="alarms-list">
+            <h2>Alarms List</h2>
+            <ul id="alarms"></ul>
+        </div>
     </div>
-
 
     <script src="script.js"></script>
 </body>
