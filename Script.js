@@ -13,7 +13,7 @@ function updateTime() {
 function setAlarm() {
     const alarmTime = document.getElementById('alarm-time').value;
     if (alarmTime) {
-        document.getElementById('alarm-message').innerText = "Alarm set for " + alarmTime;
+        document.getElementById('alarm-message').innerText = "Alarm set for this time " + alarmTime;
     } else {
         document.getElementById('alarm-message').innerText = "Please select a valid time.";
     }
